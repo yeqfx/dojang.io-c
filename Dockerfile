@@ -14,7 +14,9 @@ RUN apt-get update && apt-get -y upgrade \
     && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim \
     && vim +PluginInstall +qall \    
     && cd ~/.vim/bundle/youcompleteme \
-    && python3 install.py --clangd-completer
+    && python3 install.py --clang-completer
+
+COPY .ycm_extra_conf.py /root/.vim/
 
 ENV LC_ALL ko_KR.UTF-8
 
